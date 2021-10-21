@@ -20,5 +20,5 @@ export default function Filter({ filter, handleFilterChange }) {
  
 Filter.propTypes = {
     filter: PropTypes.string,
-    handleFilterChange:PropTypes.func
+    handleFilterChange:PropTypes.func,
 }

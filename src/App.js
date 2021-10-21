@@ -48,11 +48,15 @@ export default class PhoneBook extends Component {
   }
   componentDidMount() {
     console.log('componentDidMount');
+    console.log(this.state.contacts)
+    console.log(this.state.filter)
     const contacts = localStorage.getItem('contacts');
-    this.setState({
+    if (contacts) {
+      this.setState({
       contacts: JSON.parse(contacts),
     })
-    
+
+    } 
   }
   componentDidUpdate(prevProps, prevState) {
     if (this.state.contacts !== prevState.contacts) {
@@ -60,10 +64,11 @@ export default class PhoneBook extends Component {
     }
   }
   render() {
-    const { contacts, filter } = this.state;
-    const filteredContacts = contacts.filter(contact => {
-      return contact.name.toLowerCase().includes(filter.toLowerCase());
-    })
+    // const { contacts, filter } = this.state;
+      const filteredContacts = this.state.contacts.filter(contact => {
+        return contact.name.toLowerCase().includes(this.state.filter.toLowerCase());
+      })
+    
     // console.log(filteredContacts);
     return <>
       <h1 className = {styles.heading} >PhoneBook</h1>
