@@ -7,7 +7,6 @@ export default class ContactForm extends Component {
         number: this.props.number,
  }
   render() {
-      console.log(this.props)
         const { name, number } = this.state;
     return <>
           <form className = {styles.form}>
